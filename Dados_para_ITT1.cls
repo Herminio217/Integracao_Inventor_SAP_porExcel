@@ -53,11 +53,15 @@ Sub Dados_para_ITT1()
     Sheets("ITT1 - Campos OITT").Select
     linhaLine = 4
     acrimento = 1
-    While Cells(linhaLine, 5) <> ""
-        If Cells(linhaLine, 5) <> "" Then
-            Cells(linhaLine, 2) = "0" & acrimento
+    While Cells(linhaLine, 1) <> ""
+        ' compara com o valor de baixo, assim que ele
+        Do Until Cells(linhaLine, 1) <> Cells(linhaLine, 1).Offset(1, 0)
+            Cells(linhaLine, 2) = acrimento
             linhaLine = linhaLine + 1
             acrimento = acrimento + 1
-        End If
+        Loop
+        Cells(linhaLine, 2) = acrimento
+        linhaLine = linhaLine + 1
+        acrimento = 1
     Wend
 End Sub
