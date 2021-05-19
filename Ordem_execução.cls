@@ -10,3 +10,28 @@
 
 ' poderia mandar o EXCEL excluir todas as primerias linhas das planilhas exportadas, já para não haver bronca de ter que tirar, já que
 ' já está todo feito
+
+' Código para atualizar a planilha
+Sub Atualizar()
+ActiveWorkbook.RefreshAll
+End Sub
+
+' OITM
+' ItemCode - nº do item
+' ItemName - Descrição do Item
+' ItemsGroupCode - Grupo de Itens
+' PurchaseItem - Item de Compra
+' SalesItem - Item de Venda
+' IventoryItem - Item de Estoque
+' 
+' OITT
+' TreeCode - Item Superior (pai)
+' TreeType - Estrutura de produto
+' Quantity - nº de unidades, quantidade
+' 
+' ITT1
+' ParentKey - Item Superior (pai)
+' LineNum - número da linha
+' ItemCode - Item Filho
+' Quantity - nº de unidades, quantidade
+' Warehouse - depósito
