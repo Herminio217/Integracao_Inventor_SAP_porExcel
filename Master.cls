@@ -1,4 +1,4 @@
-Sub Atualizar_Exportar
+Sub Atualizar_Exportar()
     ' Atualizar os dados da planilhas, trás os dados das planilhas através do Power Query
     ActiveWorkbook.RefreshAll
 
@@ -208,7 +208,9 @@ Sub Atualizar_Exportar
 
 ' ------------------------------------------------------------------------------------------------------------------------------------
 ' ------------------------------------------------------------------------------------------------------------------------------------
-
+    ' Desativa as notificações após uma ação que no caso seria quando fechar. Quando salvar, caso tenha outro arquivo com mesmo nome essa função
+    ' desabilia a text box (deseja substituir arquivo existente?) e permite que salve por cima.
+    Application.DisplayAlerts = False
     ' Exportacao
     ' esse código exporta como tabulação a planilha OITM para ser importada pelo SAP via DTW
     ThisWorkbook.Sheets("OITM - Cadastro do Item").Copy
@@ -228,6 +230,8 @@ Sub Atualizar_Exportar
     ActiveWorkbook.SaveAs Filename:="C:\Users\Léo Hermínio\Desktop\ ITT1 DTW.txt", FileFormat:=xlText
     ActiveWorkbook.Close SaveChanges:=True
 
+    ' Reativa as notificações
+    Application.DisplayAlerts = True
 ' ------------------------------------------------------------------------------------------------------------------------------------
 ' ------------------------------------------------------------------------------------------------------------------------------------
 
